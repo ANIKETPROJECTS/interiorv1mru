@@ -46,6 +46,9 @@
   padding: 0 60px; /* Isolate logo */
   display: flex;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-item {
