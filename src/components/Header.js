@@ -25,7 +25,7 @@ const Header = () => {
   const getHeaderClass = () => {
     let classes = "header";
     if (isScrolled) classes += " header-sticky";
-    if (isHomePage) classes += " header-transparent";
+    if (!isScrolled && isHomePage) classes += " header-transparent";
     if (isMobileMenuOpen) classes += " mobile-menu-active";
     return classes;
   };
