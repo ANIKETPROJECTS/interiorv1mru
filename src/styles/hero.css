@@ -1,0 +1,384 @@
+/* ============================================
+   HERO SECTION - PREMIUM CAROUSEL
+   Positioned Below Header (No Overlap)
+   All 4 Images Loop Infinitely
+   ============================================ */
+
+/* Hero Container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #0a0a0a;
+  padding-top: 140px; /* Matching increased navbar height */
+  margin-top: 0; 
+}
+
+/* Dark Overlay for Text Readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Additional gradient for bottom readability */
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    transparent 100%
+  );
+}
+
+/* Hero Section - Must start at top of page */
+.hero-section {
+  margin-top: 0;
+  padding-top: 0;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* Header will overlay this */
+}
+
+/* If you have a container wrapping everything */
+.main-content,
+.app-container,
+body {
+  margin: 0;
+  padding: 0;
+}
+/* ============================================
+   HERO CONTENT - TEXT & CTA
+   ============================================ */
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  pointer-events: none;
+}
+
+.hero-text {
+  max-width: 700px;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+}
+
+.hero-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-title {
+  font-size: clamp(42px, 5.5vw, 72px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0 0 40px 0;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title .highlight {
+  font-weight: 500;
+  font-style: italic;
+  color: #ffffff;
+  position: relative;
+}
+
+.hero-cta {
+  pointer-events: auto;
+  padding: 16px 42px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(184, 147, 95, 0.9);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 30px rgba(184, 147, 95, 0.3);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-cta:hover {
+  background: rgba(184, 147, 95, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(184, 147, 95, 0.5);
+}
+
+/* ============================================
+   IMAGE CAROUSEL WITH KEN BURNS EFFECT
+   Fixed: All 4 images now loop properly
+   ============================================ */
+
+.hero-images-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 1.5s; /* Delay visibility change */
+}
+
+.hero-image.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  transition: 
+    opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0s; /* No delay for active */
+}
+
+.hero-image.prev {
+  z-index: 1;
+  opacity: 0;
+}
+
+/* Image Layer - Ken Burns Zoom Effect */
+.image-layer {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ken Burns effect when image is active */
+.hero-image.active .image-layer {
+  animation: kenBurnsZoom 12s ease-out forwards;
+}
+
+@keyframes kenBurnsZoom {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate(1.5%, 1.5%);
+  }
+}
+
+/* ============================================
+CAROUSEL NAVIGATION DOTS
+============================================ */
+.carousel-dots {
+position: absolute;
+bottom: 50px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 4;
+display: flex;
+gap: 12px;
+align-items: center;
+}
+.dot {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.4);
+border: 2px solid transparent;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+padding: 0;
+outline: none;
+}
+.dot:hover {
+background: rgba(255, 255, 255, 0.7);
+transform: scale(1.2);
+}
+.dot.active {
+width: 40px;
+border-radius: 20px;
+background: rgba(184, 147, 95, 1);
+border-color: rgba(255, 255, 255, 0.3);
+}
+/* ============================================
+SCROLL INDICATOR
+============================================ */
+.scroll-indicator {
+position: absolute;
+bottom: 50px;
+right: 8%;
+z-index: 4;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+animation: fadeInUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s backwards;
+}
+.scroll-line {
+width: 2px;
+height: 60px;
+background: linear-gradient(
+to bottom,
+transparent 0%,
+rgba(255, 255, 255, 0.6) 50%,
+transparent 100%
+);
+animation: scrollPulse 2s ease-in-out infinite;
+}
+.scroll-text {
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 2px;
+color: rgba(255, 255, 255, 0.6);
+writing-mode: vertical-rl;
+text-orientation: mixed;
+font-family: 'Montserrat', sans-serif;
+}
+@keyframes scrollPulse {
+0%, 100% {
+opacity: 0.4;
+transform: translateY(0);
+}
+50% {
+opacity: 1;
+transform: translateY(10px);
+}
+}
+/* ============================================
+ANIMATIONS
+============================================ */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+/* ============================================
+RESPONSIVE DESIGN
+============================================ */
+@media (max-width: 1024px) {
+.hero {
+margin-top: 0;
+}
+.hero-content {
+padding: 0 6%;
+}
+.hero-title {
+font-size: clamp(36px, 5vw, 60px);
+}
+.scroll-indicator {
+right: 6%;
+}
+}
+@media (max-width: 768px) {
+.hero {
+height: 100vh;
+min-height: 600px;
+margin-top: 0;
+}
+.hero-content {
+padding: 0 5%;
+align-items: flex-start;
+padding-top: 15%;
+}
+.hero-subtitle {
+font-size: 11px;
+margin-bottom: 15px;
+}
+.hero-title {
+font-size: clamp(32px, 8vw, 48px);
+margin-bottom: 30px;
+}
+.hero-cta {
+padding: 14px 32px;
+font-size: 12px;
+}
+.carousel-dots {
+bottom: 30px;
+}
+.dot {
+width: 8px;
+height: 8px;
+}
+.dot.active {
+width: 30px;
+}
+.scroll-indicator {
+display: none;
+}
+/* Disable parallax on mobile for performance */
+.image-layer {
+transition: none !important;
+}
+.hero-image.active .image-layer {
+animation: kenBurnsZoomMobile 12s ease-out forwards;
+}
+}
+@keyframes kenBurnsZoomMobile {
+0% {
+transform: scale(1);
+}
+100% {
+transform: scale(1.08);
+}
+}
+@media (max-width: 480px) {
+.hero {
+margin-top: 0;
+}
+.hero-subtitle {
+font-size: 10px;
+letter-spacing: 2px;
+}
+.hero-title {
+font-size: 28px;
+}
+.hero-cta {
+padding: 12px 28px;
+font-size: 11px;
+}
+}
