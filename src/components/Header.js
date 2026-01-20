@@ -108,7 +108,11 @@ const Header = () => {
           </div>
         </div>
 
+        {/* Mobile Navbar Layout */}
         <div className="header-mobile-layout mobile-tablet-only">
+          <Link to="/" className="header-logo">
+            <img src={logo} alt="SJ Interior Studio" className="logo-image" />
+          </Link>
           <button
             className="hamburger-menu"
             onClick={toggleMobileMenu}
