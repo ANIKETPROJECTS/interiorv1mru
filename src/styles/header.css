@@ -26,18 +26,9 @@
 
 .header-mobile-layout {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: relative;
-}
-
-.header-mobile-layout .header-logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0;
-  margin: 0;
 }
 
 .hamburger-menu {
@@ -49,7 +40,6 @@
   cursor: pointer;
   z-index: 1001;
   padding: 10px;
-  margin-right: auto; /* Push to left */
 }
 
 .hamburger-line {
