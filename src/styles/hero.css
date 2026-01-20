@@ -31,9 +31,11 @@
 
 @media (max-width: 768px) {
   .hero-content {
+    padding: 0 20px;
     align-items: center !important;
     justify-content: center !important;
-    padding-top: 80px;
+    text-align: center !important;
+    padding-top: 100px; /* Increased from 80px */
   }
 }
 
