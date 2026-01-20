@@ -120,11 +120,6 @@ const Hero = () => {
       <div className="hero-content">
         <div className="hero-text">
           <p className="hero-subtitle">THE #1 INTERIOR DESIGN SERVICE</p>
-          <h1 className="hero-title">
-            Designing your<br />
-            <span className="highlight">dream home</span> just<br />
-            became a reality.
-          </h1>
           <button className="hero-cta">FIND YOUR STYLE</button>
         </div>
       </div>
