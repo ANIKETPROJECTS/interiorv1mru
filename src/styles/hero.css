@@ -29,6 +29,14 @@
   pointer-events: none;
 }
 
+@media (max-width: 768px) {
+  .hero-content {
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 80px;
+  }
+}
+
 .hero-text {
   max-width: 800px;
 }
