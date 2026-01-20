@@ -31,11 +31,9 @@
 
 @media (max-width: 768px) {
   .hero-content {
-    padding: 0 20px;
     align-items: center !important;
     justify-content: center !important;
-    text-align: center !important;
-    padding-top: 180px; /* Increased from 140px */
+    padding-top: 80px;
   }
 }
 
