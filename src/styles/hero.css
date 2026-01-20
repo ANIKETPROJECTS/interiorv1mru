@@ -9,65 +9,10 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 700px;
+  min-height: 600px;
   overflow: hidden;
   background: #0a0a0a;
-  padding-top: 140px; /* Matching increased navbar height */
-  margin-top: 0; 
 }
-
-/* Dark Overlay for Text Readability */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.45) 100%
-  );
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Additional gradient for bottom readability */
-.hero-overlay::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.65) 0%,
-    transparent 100%
-  );
-}
-
-/* Hero Section - Must start at top of page */
-.hero-section {
-  margin-top: 0;
-  padding-top: 0;
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  /* Header will overlay this */
-}
-
-/* If you have a container wrapping everything */
-.main-content,
-.app-container,
-body {
-  margin: 0;
-  padding: 0;
-}
-/* ============================================
-   HERO CONTENT - TEXT & CTA
-   ============================================ */
 
 .hero-content {
   position: absolute;
@@ -78,8 +23,31 @@ body {
   z-index: 3;
   display: flex;
   align-items: center;
-  padding: 0 8%;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
   pointer-events: none;
+}
+
+.hero-text {
+  max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  
+  .hero-subtitle {
+    font-size: 11px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-cta {
+    padding: 12px 30px;
+    font-size: 12px;
+  }
 }
 
 .hero-text {

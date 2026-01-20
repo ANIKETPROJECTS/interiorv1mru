@@ -13,9 +13,22 @@ body {
   background-color: #faf7f2;
   color: #2c2c2c;
   overflow-x: hidden;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 .app {
   width: 100%;
   overflow-x: hidden;
+}
+
+/* Global Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 20px;
+  }
+  
+  section {
+    padding: 60px 20px;
+  }
 }
