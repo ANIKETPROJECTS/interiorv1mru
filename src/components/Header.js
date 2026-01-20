@@ -42,9 +42,7 @@ const Header = () => {
           <div className="nav-left">
             <div className="nav-item nav-dropdown">
               <span className="nav-link">DESIGN SERVICES</span>
-              <svg className="dropdown-icon" viewBox="0 0 10 6">
-                <path d="M5 6L0 0h10L5 6z" />
-              </svg>
+              
               <div className="dropdown-menu">
                 <a href="#about">How We Work</a>
                 <Link to="/services/materials-selection">Materials & Fabrication</Link>
@@ -55,9 +53,7 @@ const Header = () => {
 
             <div className="nav-item nav-dropdown">
               <span className="nav-link">DESIGN PORTFOLIO</span>
-              <svg className="dropdown-icon" viewBox="0 0 10 6">
-                <path d="M5 6L0 0h10L5 6z" />
-              </svg>
+              
               <div className="dropdown-menu">
                 <Link to="/residential/living-room">Living Room</Link>
                 <Link to="/residential/bedroom">Bedroom</Link>
@@ -68,9 +64,7 @@ const Header = () => {
 
             <div className="nav-item nav-dropdown">
               <span className="nav-link">BY LOCATIONS</span>
-              <svg className="dropdown-icon" viewBox="0 0 10 6">
-                <path d="M5 6L0 0h10L5 6z" />
-              </svg>
+              
               <div className="dropdown-menu">
                 <a href="#locations">Ambernath</a>
                 <a href="#locations">Thane</a>
@@ -88,9 +82,7 @@ const Header = () => {
           <div className="nav-right">
             <div className="nav-item nav-dropdown">
               <span className="nav-link">ABOUT US</span>
-              <svg className="dropdown-icon" viewBox="0 0 10 6">
-                <path d="M5 6L0 0h10L5 6z" />
-              </svg>
+              
               <div className="dropdown-menu">
                 <a href="#about">Our Story</a>
                 <a href="#about">Team</a>

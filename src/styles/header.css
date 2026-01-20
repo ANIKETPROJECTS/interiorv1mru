@@ -32,14 +32,14 @@
   display: flex;
   align-items: center;
   gap: 40px;
-  justify-content: flex-end; /* Align toward logo */
+  justify-content: center;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
   gap: 40px;
-  justify-content: flex-start; /* Align toward logo */
+  justify-content: center;
 }
 
 .header-logo {
